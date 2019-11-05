@@ -1,0 +1,7 @@
+public void ## 
+#set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))
+click##
+${name}() {
+  waitForElementToAppear($field.name);
+  ${field.name}.click();
+}
