@@ -1,0 +1,14 @@
+#if($field.modifierStatic)
+static ##
+#end
+boolean ##
+#if($field.recordComponent)
+    ${field.name}##
+#else
+    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))
+    isVisible${name}##
+#end
+() {
+waitUntilElementIsVisibleNonThrow($field.name,30);
+return isVisible($field.name);
+}
